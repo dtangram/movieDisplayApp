@@ -1,0 +1,71 @@
+.modal{
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  padding-top: 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.modal > article{
+  align-items: center;
+  background: #FFF;
+  left: 50%;
+  margin: 0 auto;
+  padding: 10px 1.5%;
+  position: fixed;
+  width: 500px;
+  transform: translateX(-50%);
+}
+
+.headerWrap, .copyWrap{
+  display: flex;
+  flex-direction: row;
+}
+
+.headerWrap{
+  justify-content: space-between;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+.headerWrap span{
+  cursor: pointer;
+  font-size: 3.5rem;
+  font-weight: lighter;
+}
+
+.copyWrap{
+  justify-content: space-evenly;
+}
+
+.copyWrap p span{
+  font-weight: bold;
+}
+
+.copyWrap > article:nth-child(1) figure{
+  width: 250px;
+}
+
+.copyWrap > article:nth-child(1) figure img{
+  width: 100%;
+}
+
+.copyWrap p{
+  font-size: 1rem;
+}
+
+.copyWrap > article:nth-child(2){
+  padding-left: 4%;
+}
+
+.copyWrap > article:nth-child(2) p:nth-child(1){
+  margin-top: 0;
+}
+
+.copyWrap > article:nth-child(2) p:nth-child(2){
+  line-height: 20px;
+}
