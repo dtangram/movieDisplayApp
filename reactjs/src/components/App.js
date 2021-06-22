@@ -18,10 +18,12 @@ const App = () => {
 
 		setMovieQueryValue(event.target.value);
 
-		axios.get(`${domain}/search/movie?api_key=${api_key}&language=en-US&page=1&include_adult=false&query=${moviesQuery}`)
-		 .then((res) => {
-			 setMovieValue(res.data.results);
-			})
+		if (moviesQuery) {
+			axios.get(`${domain}/search/movie?api_key=${api_key}&language=en-US&page=1&include_adult=false&query=${moviesQuery}`)
+			 .then((res) => {
+				 setMovieValue(res.data.results);
+				})
+		}
 	};
 
 	useEffect(() => {
