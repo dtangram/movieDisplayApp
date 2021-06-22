@@ -27,7 +27,6 @@ const App = () => {
 	useEffect(() => {
 		const api_key = process.env.REACT_APP_MOVIE_DB_API_KEY;
 		const domain = process.env.REACT_APP_API_DOMAIN;
-		const imageURL = process.env.REACT_APP_API_BASE_IMAGE_URL;
 
 		const movieDisplay = async () => {
 			await axios.get(`${domain}/movie/now_playing?api_key=${api_key}`)
@@ -65,24 +64,20 @@ const App = () => {
 
 				<section>
 					{movies.length > 0 && movies.map(movieItems => (
-						<React.Fragment>
-							<article>
-								<section key={movieItems.id}>
-									<figure>
-										<span>{movieItems.vote_average}</span>
-										<img
-											src={`${imageURL}${movieItems.poster_path}`}
-											alt={`${movieItems.title}`}
-											onClick={() => {setShowModal(true); movieDisplayID(movieItems.id)}}
-										/>
+						<article key={movieItems.id}>
+							<section>
+								<figure>
+									<span>{movieItems.vote_average}</span>
+									<img
+										src={`${imageURL}/${movieItems.poster_path}`}
+										alt={`${movieItems.title}`}
+										onClick={() => {setShowModal(true); movieDisplayID(movieItems.id)}}
+									/>
 
-										<p>{movieItems.title}</p>
-									</figure>
-								</section>
-							</article>
-
-
-						</React.Fragment>
+									<p>{movieItems.title}</p>
+								</figure>
+							</section>
+						</article>
 					))}
 				</section>
 			</main>
@@ -94,6 +89,7 @@ const App = () => {
 			<Modal
 				showModal={showModal}
 				closeModal={closeModal}
+				imageURL={imageURL}
 				moviesID={moviesID}
 			/>
 		</React.Fragment>

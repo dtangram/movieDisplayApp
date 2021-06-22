@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-export const Modal = ({ showModal, closeModal, moviesID }) => {	
-	const imageURL = process.env.REACT_APP_API_BASE_IMAGE_URL;
-
+export const Modal = ({ showModal, closeModal, imageURL, moviesID }) => {
 	return (
 		<React.Fragment>
       {
@@ -27,7 +25,7 @@ export const Modal = ({ showModal, closeModal, moviesID }) => {
 					<section className={styles.copyWrap}>
 						<article>
 							<figure>
-								<img src={`${imageURL}${moviesID.poster_path}`} alt={`${moviesID.title}`} />
+								<img src={`${imageURL}/${moviesID.poster_path}`} alt={`${moviesID.title}`} />
 							</figure>
 						</article>
 
