@@ -25,7 +25,7 @@ export const Modal = ({ showModal, closeModal, imageURL, moviesID }) => {
 					<section className={styles.copyWrap}>
 						<article>
 							<figure>
-								<img src={`${imageURL}/${moviesID.poster_path}`} alt={`${moviesID.title}`} />
+								{!showModal ? null : (<img src={`${imageURL}/${moviesID.poster_path}`} alt={`${moviesID.title}`} />)}
 							</figure>
 						</article>
 
