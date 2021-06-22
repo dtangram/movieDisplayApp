@@ -39,11 +39,13 @@ const App = () => {
 	}, []);
 
 	const movieDisplayID = async (id) => {
-		await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=7315ec59ea2264da1fa4f4eb8d647853`)
-		 .then((res) => {
-			 setMovieValueID(res.data)
-			 console.log('DATA: ', res.data);
-			})
+		if (id) {
+			await axios.get(`${domain}/movie/${id}?api_key=${api_key}`)
+			 .then((res) => {
+				 setMovieValueID(res.data)
+				 console.log('DATA: ', res.data);
+				})
+		}
 	};
 	movieDisplayID();
 
